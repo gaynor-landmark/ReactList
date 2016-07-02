@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React List</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!--  <script src="./bundle.js"></script> -->
+  <body>
+    <div class='container-fluid'>
+      This will be a react list
+    <!--  <div class='spacer'> -->
+        <div class='row'>
+          <div class='col-lg-4 col-lg-offset-4'>
+            <input type='search' class='form-control' placeholder='Search for item on list' />
+          </div>
+        </div>
+        <div class='row'>
+            <div class='col-lg-4 col-lg-offset-4'>
+              <table width='100%'>
+                <thead>
+                  <tr>
+                    <th>Title</th><th>Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat='episode in episodes'>
+                    <td>the title</td>
+                    <td>
+                      <a href='#'>the link</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    <!--  </div> -->
+    </div>
+  </body>
+</html>
