@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "echo \"Eror: no test specified\" && exit 1",
+    "start": "nodemon server/server.js",
+    "watch": "watchify src/index.js -o public/bundle.js -t [ babelify --presets [ es2015 react stage-0 ] ] -dv"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gaynor-landmark/ReactList.git"
@@ -16,5 +18,15 @@
   "bugs": {
     "url": "https://github.com/gaynor-landmark/ReactList/issues"
   },
-  "homepage": "https://github.com/gaynor-landmark/ReactList#readme"
+  "homepage": "https://github.com/gaynor-landmark/ReactList#readme",
+  "dependencies": {
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.3.0",
+    "express": "^4.14.0",
+    "react": "^15.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2",
+    "watchify": "^3.7.0"
+  }
 }
