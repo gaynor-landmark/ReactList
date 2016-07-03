@@ -23,7 +23,7 @@ module.exports = React.createClass({
           <table width='100%'>
             <thead>
               <tr>
-                <th>Symbol</th><th>Item</th><th>Date</th>
+                <th>Item</th><th>Date</th>
               </tr>
             </thead>
             <tbody>
