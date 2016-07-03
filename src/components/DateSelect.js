@@ -2,16 +2,18 @@ var React = require('react')
 var moment = require('moment')
 module.exports = React.createClass({
   handleChange: function() {
-    this.props.handleDateChange(this.refs.filterDate.getDOMNode().value)
+    var x = document.getElementById('filterDate').value
+    console.log(x, this.props)
+    this.props.handleDateChange(x)
   },
 
   render: function(){
 
-    var mDate = moment(this.props.startDate.toDateString()).format('YYYY-MM-DD')
+    var mDate = this.props.startDate
     console.log(mDate)
     return (
       <div >
-        <input type='date' ref='filterDate' onChange={this.handleChange} value={mDate} />
+        <input type='date' id='filterDate' onChange={this.handleChange} value={mDate} />
       </div>
     )
   }
