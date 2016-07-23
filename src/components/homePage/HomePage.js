@@ -1,8 +1,10 @@
 "use strict"
 var React = require('react')
 var DateSelect =require('../DateSelect')
-var List = require('../List')
+var DatedList = require('../DatedList')
 var moment = require('moment')
+var Nav = require('../Nav')
+
 var testList = [
   {
     itemText: "first list item",
@@ -32,14 +34,17 @@ module.exports = React.createClass({
   },
   render: function() {
     return (
-      <div>
-        <div className='spacer'></div>
-        <h1 >Todays List</h1>
 
-        <p>Hello</p>
-        <DateSelect startDate={this.state.startDate} handleDateChange={this.handleDateChange}/>
-        <p></p>
-        <List listItems={testList} startDate={this.state.startDate}/>
+      <div className='col-lg-4 col-lg-offset-1'>
+
+          <Nav />
+          <div className='spacer'></div>
+          <h1 >Todays List</h1>
+
+          <p>Hello</p>
+          <DateSelect startDate={this.state.startDate} handleDateChange={this.handleDateChange}/>
+          <p></p>
+          <DatedList listItems={testList} startDate={this.state.startDate}/>
 
       </div>
 

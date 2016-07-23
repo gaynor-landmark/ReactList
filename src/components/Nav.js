@@ -1,14 +1,15 @@
 "use strict"
-var React = require('react')
+import React  from 'react'
+import { Link } from 'react-router'
 
 module.exports = React.createClass({
   render: function() {
     return (
       <div>
         <ul className="nav nav-tabs" role="tablist">
-          <li className="active"><a href="#">Home</a></li>
-          <li><a href="#">Index</a></li>
-          <li><a href="#">About</a></li>
+          <li className="active"><Link to='/'>Home</Link></li>
+          <li><Link to='/listIndex'>List Index</Link></li>
+          <li><Link to='/About'>About</Link></li>
         </ul>
       </div>
     )
