@@ -18,9 +18,9 @@ module.exports = React.createClass({
         return <ListItem key={item.itemText} itemText={item.itemText} itemDate={mDate}/>
       })
     return (
-      <div className='row'>
-        <div className='col-lg-4 col-lg-offset-4'>
-          <table width='100%'>
+
+        <div >
+          <table width='100%' className='table'>
             <thead>
               <tr>
                 <th>Item</th><th>Date</th>
@@ -31,6 +31,6 @@ module.exports = React.createClass({
             </tbody>
           </table>
         </div>
-      </div>
+
   )}
 })
