@@ -1,15 +1,11 @@
 "use strict"
-var React = require('react')
-var Router = require('react-router')
-var DefaultRoute = Router.DefaultRoute
-var Route = Router.Route
+import React from 'react'
+import { Router, Route, browserHistory, DefaultRoute } from 'react-router'
 
-var routes = (
-  <Route name="app" path='/' handler={require('./components/app')}>
-    <DefaultRoute handler={require('./components/homePage/HomePage')}>
-    <Route name="about" handler={require('./about/AboutPage')}>
-    <Route name="listIndex" handler={require('./listIndex/ListIndex')}>
-  </Route>
+module.exports = (
+  <Router history={browserHistory}>
+    <Route path="/" component={require('./components/App')}/>
+    <Route path="about" component={require('./components/about/AboutPage')}/>
+    <Route path="listIndex" component={require('./components/listIndex/ListIndex')}/>
+  </Router>
 )
-
-module.exports = routes

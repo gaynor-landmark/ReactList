@@ -1,23 +1,17 @@
 var React = require('react')
-var HomePage = require('./homePage/HomePage')
+var RouteHandler = require('react-router').RouteHandler
 
 var Nav = require('./Nav')
+import HomePage from './homePage/HomePage'
 
 
 module.exports = React.createClass({
 
   render: function(){
     //console.log("passing state", this.state, this.props.listItems)
-
     return (
-
       <div className='container-fluid'>
-        <div className='col-lg-4 col-lg-offset-1'>
-          <div className='spacer'>
-            <Nav />
-          </div>
           <HomePage />
-        </div>
       </div>
     )
   }

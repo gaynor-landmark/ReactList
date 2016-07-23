@@ -1,11 +1,15 @@
 "use strict"
-var React = require('react')
-var render = require('react-dom').render
-var App = require('./components/App')
-var domready = require('domready')
+
+import React from 'react'
+import { render } from 'react-dom'
+import routes from './routes'
+import { browserHistory, Router } from 'react-router'
+import domready from 'domready'
+
 
 domready(() => {
-  // mount point
-  console.log("mount")
-  render(<App />, document.querySelector('#app'))
+  render(
+    <Router routes={routes} history={browserHistory}/>,
+    document.getElementById('app')
+  )
 })
