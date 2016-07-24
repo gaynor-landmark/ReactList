@@ -2,9 +2,9 @@
 
 import React from 'react'
 import Nav from '../Nav'
-
-var DateSelect =require('../DateSelect')
-var List = require('../List')
+import DateSelect from '../DateSelect'
+import List from '../List'
+import ItemForm from '../ItemForm'
 
 var testList = [
   {
@@ -20,9 +20,12 @@ var testList = [
     date: new Date("2016-07-22")
   }
 ]
+var theList
 module.exports = React.createClass({
-
-  
+  getInitialState: function(){
+    theList = testList
+    return null
+  },
   render: function() {
     return (
       <div className='container-fluid'>
@@ -30,7 +33,8 @@ module.exports = React.createClass({
           <Nav />
           <div className='spacer'></div>
           <h1 >List Index</h1>
-          <List listItems={testList} />
+          <List listItems={theList} />
+          <ItemForm />
         </div>
       </div>
     )

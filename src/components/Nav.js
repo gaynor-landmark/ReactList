@@ -7,7 +7,7 @@ module.exports = React.createClass({
     return (
       <div>
         <ul className="nav nav-tabs" role="tablist">
-          <li className="active"><Link to='/'>Home</Link></li>
+          <li className="active"><Link to='/'>Today</Link></li>
           <li><Link to='/listIndex'>List Index</Link></li>
           <li><Link to='/About'>About</Link></li>
         </ul>
