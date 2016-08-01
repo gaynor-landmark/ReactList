@@ -1,9 +1,28 @@
 var express = require('express')
 var path = require('path')
+var uuid = require('uuid')
+var cors = require('cors')
+
+var routes = require('./routes.js')
+
+var bodyParser = require('body-parser')
+
+var knex = require('knex')({
+  client: 'sqlite3',
+  connection: {
+    filename: './data/theLists.db'
+  },
+  useNullAsDefault: true
+})
+
 
 const app = express()
 
 app.use(express.static(path.join(__dirname, '../public')))
+
+app.use(bodyParser.json())
+
+routes(app)
 
 if (require.main === module){
   app.set('port', 4000)
@@ -11,25 +30,3 @@ if (require.main === module){
     console.log('Listening on port ' + server.address().port)
   })
 }
-app.get('/', function(req, resp) {
-  resp.send('react-list')
-})
-
-var testList = [
-  {
-    itemText: "first list item",
-    date: new Date("2016-07-01")
-  },
-  {
-    itemText: "second list item",
-    date: new Date("2016-07-03")
-  },
-  {
-    itemText: "third list item",
-    date: new Date("2016-07-02")
-  }
-]
-app.get('/testList', function(req, resp) {
-  console.log('in server get testList')
-  resp.send(testList)
-})

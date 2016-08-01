@@ -6,6 +6,7 @@ import moment from 'moment'
 import Nav from '../Nav'
 import ItemForm from '../ItemForm'
 import getRequest from '../../getRequest'
+import postRequest from '../../postRequest'
 
   var testList = []
 module.exports = React.createClass({
@@ -20,16 +21,18 @@ module.exports = React.createClass({
   },
   componentDidMount: function() {
     // get all the list items from the database
-    // var url = 'http://toothandpaildb.herokuapp.com'
     console.log('componentDidMount')
     var url = 'http://localhost:4000'
-    getRequest(url + '/testList', this.dbSetState)
+  //  getRequest(url + '/testList', this.dbSetState)
+    console.log('test the post')
+    postRequest(url + '/addItem', {listItem: 'hello'}, this.dbSetState )
   },
 
   dbSetState: function (data, err) {
     console.log('setstate',err, data)
     testList = data
     this.setState({listItems: data})
+
   },
 
   handleDateChange: function(mDate) {
