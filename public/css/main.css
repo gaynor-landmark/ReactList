@@ -1,6 +1,17 @@
 body {
-  background-color: slate-grey;
+
   color: orange;
   margin-top: 10%;
+  border-width: 10%;
+  border-style: solid;
+  border-color: pink;
 
+}
+.box {
+  background-color: pink;
+  border-width: 10%;
+  border-style: solid;
+  border-color: pink;
+  margin:10%;
+  min-height:90%;
 }
