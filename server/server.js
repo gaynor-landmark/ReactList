@@ -7,13 +7,6 @@ var routes = require('./routes.js')
 
 var bodyParser = require('body-parser')
 
-var knex = require('knex')({
-  client: 'sqlite3',
-  connection: {
-    filename: './data/theLists.db'
-  },
-  useNullAsDefault: true
-})
 
 
 const app = express()

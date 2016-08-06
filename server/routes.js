@@ -1,14 +1,10 @@
 var express = require('express')
-// var path = require('path')
 var cors = require('cors')
 
 var uuid = require('uuid')
 //var $ = require('jquery')
 var bodyParser = require('body-parser')
-//var display = require('../src/js/display.js')
-
-//var user = {}
-
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 var knex = require('knex')({
   client: 'sqlite3',
@@ -43,65 +39,34 @@ module.exports = function routes(app){
     resp.send(testList)
   })
 
-  app.post('/addItem', function(req, resp){
-    console.log('in server addItem', knex)
-    var newID = uuid.v4()
 
-    knex('lists')
+  app.post('/addList', urlencodedParser, function(req, resp){
+    var newID = uuid.v4()
+  //  console.log('server-side', resp)
+    knex('Lists')
     .insert({
-      listID : newID,
-      listName: req.body
+      ListID : newID,
+      ListName: req.body.listName
     })
-    .then(function(resp){
-      console.log(resp)
-    //  resp.send(newID)
+    .then(function(resp1){
+console.log('server-side', resp1)
+      resp1.end
     })
   })
 
-
-  // app.post('/palettes', function(req, res) {
-  // var newId = uuid.v4()
-  // console.log(user.id)
-  // var userID = 0
-  // if (passport.session.id){
-  //   var userID = passport.session.id
-  // }
-  // var colours = req.body.Colours.split('|')
-  //   knex('palettes').insert({
-  //         PaletteID: newId ,
-  //         PaletteName: req.body.Name,
-  //         UserID: userID,
-  //         Colour1: colours[0],
-  //         Colour2: colours[1],
-  //         Colour3: colours[2],
-  //         Colour4: colours[3],
-  //         Colour5: colours[4]
-  //       }).then(function(resp) {
-  //         res.send('Saved')
-  //       })
-  // })
-  //
-  // app.get('/palettes', function(req, res) {
-  //   console.log("in GET", passport.session.id)
-  //   if (passport.session.id) {
-  //     knex('palettes')
-  //     .join('users', 'users.UserID', '=', 'palettes.UserID')
-  //     //  .select('users.DisplayName', 'palettes.PaletteName', 'palettes.Colour1', 'palettes.Colour2', 'palettes.Colour3', 'palettes.Colour4', 'palettes.Colour5')
-  //
-  //     .where('palettes.UserID', passport.session.id)
-  //     .select('*')
-  //     .then(function(resp) {
-  //       console.log ("inget", resp)
-  //         res.send(resp)
-  //     })
-  //   } else {
-  //     res.send({})
-  //   }
-  //
-  // })
-
-
-
+  app.post('/addItem', urlencodedParser, function(req, resp){
+    var newID = uuid.v4()
+    knex('Items')
+    .insert({
+      ItemID : newID,
+      ItemListID : req.body.ItemListId,
+      ItemText : req.body.ItemText,
+      ItemStatus : req.body.ItemStatus
+    })
+    .then(function(resp){
+      resp.send
+    })
+  })
 
 
 }

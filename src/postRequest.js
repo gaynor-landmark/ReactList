@@ -2,7 +2,7 @@
 import request from 'superagent'
 
 export default function (url, data, callback) {
-  console.log('in client side post request', url, data)
+  console.log('in client side post request', url, data, callback)
   request
     .post(url)
     .send(data)
