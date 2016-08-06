@@ -9,6 +9,8 @@ import getRequest from '../../getRequest'
 import postRequest from '../../postRequest'
 
   var testList = []
+  var url = 'http://localhost:4000'  // need to swop this for env variable
+
 module.exports = React.createClass({
 
   getInitialState: function() {
@@ -21,11 +23,19 @@ module.exports = React.createClass({
   },
   componentDidMount: function() {
     // get all the list items from the database
-    console.log('componentDidMount')
-    var url = 'http://localhost:4000'
+    console.log('componentDidMount', url)
+
   //  getRequest(url + '/testList', this.dbSetState)
-    console.log('test the post')
-    postRequest(url + '/addItem', {listItem: 'hello'}, this.dbSetState )
+
+    postRequest(url + '/addList', {listName: 'hello'}, this.addItemToNewList )
+
+  },
+
+  addItemToNewList : function(err, newListID){
+    console.log('addItemToNewList', newListID)
+    postRequest(url + '/addItem', {ItemListID : newListID,
+      ItemText : 'test item',
+      ItemStatus : 0}, this.dbSetState)
   },
 
   dbSetState: function (data, err) {
