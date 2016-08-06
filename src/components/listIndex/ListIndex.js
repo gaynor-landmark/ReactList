@@ -4,7 +4,7 @@ import React from 'react'
 import Nav from '../Nav'
 import DateSelect from '../DateSelect'
 import List from '../List'
-import ItemForm from '../ItemForm'
+//import ItemForm from '../ItemForm'
 
 var testList = [
   {

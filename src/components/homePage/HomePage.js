@@ -4,7 +4,7 @@ import DateSelect from '../DateSelect'
 import DatedList from '../DatedList'
 import moment from 'moment'
 import Nav from '../Nav'
-import ItemForm from '../ItemForm'
+//import ItemForm from '../ItemForm'
 import getRequest from '../../getRequest'
 import postRequest from '../../postRequest'
 
@@ -31,7 +31,7 @@ module.exports = React.createClass({
 
   },
 
-  addItemToNewList : function(err, newListID){
+  addItemToNewList : function(newListID){
     console.log('addItemToNewList', newListID)
     postRequest(url + '/addItem', {ItemListID : newListID,
       ItemText : 'test item',
@@ -65,9 +65,8 @@ console.log("state", this.state)
           <DateSelect startDate={this.state.startDate} handleDateChange={this.handleDateChange}/>
           <p></p>
           <DatedList listItems={this.state.listItems} startDate={this.state.startDate}/>
-          <ItemForm />
-      </div>
 
+      </div>
     )
   }
 })

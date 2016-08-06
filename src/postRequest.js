@@ -7,7 +7,12 @@ export default function (url, data, callback) {
     .post(url)
     .send(data)
     .end(function(err, res) {
-      console.log("in callback")
-      callback(err, res)
+      console.log("in callback", err, res.text)
+      if (err) {
+        console.log("ERROR")
+      } else {
+        console.log("about to call back")
+        callback(res.text)
+      }
   })
 }
