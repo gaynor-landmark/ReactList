@@ -48,14 +48,13 @@ module.exports = function routes(app){
       ListID : newID,
       ListName: req.body.listName
     })
-    .then(function(resp1){
-console.log('server-side', resp1)
-      resp1.end
-    })
+    resp.end(newID)
+
   })
 
   app.post('/addItem', urlencodedParser, function(req, resp){
     var newID = uuid.v4()
+    console.log('server-side additem')
     knex('Items')
     .insert({
       ItemID : newID,
@@ -63,9 +62,7 @@ console.log('server-side', resp1)
       ItemText : req.body.ItemText,
       ItemStatus : req.body.ItemStatus
     })
-    .then(function(resp){
-      resp.send
-    })
+    resp.end(newID)
   })
 
 
