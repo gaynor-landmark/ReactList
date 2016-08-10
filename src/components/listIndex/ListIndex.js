@@ -4,7 +4,7 @@ import React from 'react'
 import Nav from '../Nav'
 import DateSelect from '../DateSelect'
 import List from '../List'
-//import ItemForm from '../ItemForm'
+import IndexItemForm from './IndexItemForm'
 
 var testList = [
   {
@@ -23,7 +23,7 @@ var testList = [
 var theList
 module.exports = React.createClass({
   getInitialState: function(){
-    theList = testList
+//console.log('state', this.state)
     return null
   },
   render: function() {
@@ -33,8 +33,8 @@ module.exports = React.createClass({
           <Nav />
           <div className='spacer'></div>
           <h1 >List Index</h1>
-          <List listItems={theList} />
-          <ItemForm />
+          <List listItems={testList} />
+          <IndexItemForm />
         </div>
       </div>
     )
