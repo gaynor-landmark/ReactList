@@ -35,14 +35,21 @@ module.exports = function routes(app){
     }
   ]
   app.get('/testList', function(req, resp) {
-    console.log('in server get testList')
+  //  console.log('in server get testList')
     resp.send(testList)
   })
+
+  // app.get('/DatedList', function(req, resp) {
+  //   console.log('in server get testList')
+  //   knex('Lists')
+  //   .where()
+  //   resp.send(testList)
+  // })
 
 
   app.post('/addList', urlencodedParser, function(req, resp){
     var newID = uuid.v4()
-  //  console.log('server-side', resp)
+  //  console.log('addList req', req)
     knex('Lists')
     .insert({
       ListID : newID,
@@ -54,7 +61,7 @@ module.exports = function routes(app){
 
   app.post('/addItem', urlencodedParser, function(req, resp){
     var newID = uuid.v4()
-    console.log('server-side additem')
+  //  console.log('server-side additem')
     knex('Items')
     .insert({
       ItemID : newID,
